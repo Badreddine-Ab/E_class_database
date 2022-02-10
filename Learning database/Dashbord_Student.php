@@ -58,7 +58,7 @@ require_once 'connect_db.php'
                     <?php $results = mysqli_query($conn, "SELECT * FROM `students`"); 
                     while($Students = mysqli_fetch_array($results)) {?>
                         <tr class=" bg-white  mb-3 align-middle border-5 border-light ">
-                            <td><img src="images /<?php echo $Students['image'] ?>" alt="user pic"></td>
+                            <td style="flex-basis: 50px; overflow:hidden"><img src="images/<?php echo $Students['image'] ?>" alt="user pic"></td>
                             <td><?php echo $Students['name'] ?></td>
                             <td><?php echo $Students['email'] ?></td>
                             <td><?php echo $Students['phone'] ?></td>

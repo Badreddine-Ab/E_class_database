@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg  bg-light navbar-light ">
-    <div class="container-fluid">
+<nav class="navbar navbar-expand-lg  bg-light navbar-light  ">
+    <div class="container-fluid sticky-top">
         <a class="navbar-brand navIcons" id="sidebarToggle">
             <i class="bi bi-arrow-left-circle fs-3"></i></a>
         <form class="d-flex">

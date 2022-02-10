@@ -25,10 +25,10 @@
 </head>
 <body>
   <div class="container w-50 pt-5" >
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
       <div class="form-group mb-3">
         <label for="formFile" class="form-label"></label>
-        <input class="form-control shadow-none" type="file" name="img" id="img" value="<?php echo $img; ?>">
+        <input class="form-control shadow-none" type="file" name="img" id="img">
       </div>
 
       <div class="form-group mb-3">
@@ -59,17 +59,30 @@
   <?php
     if (isset($_POST['edit'])){
     
-    $img = $_POST["img"] ;
+    $img = $_FILES["img"]['name'] ;
     $name = $_POST["name"] ;
     $email =$_POST["email"] ;
     $phone =$_POST["phone"] ;
     $number = $_POST["EnrollNumber"] ;
+    
+    $id = $_GET['edit'];
+    $results = "SELECT * FROM `students` WHERE id = $id";  
+    $res = mysqli_query($conn, $results);
+    $data = mysqli_fetch_assoc($res);
+
+      if($img) {
+        move_uploaded_file($_FILES['img']['tmp_name'], "./images/".$img);
+      } else {
+        $img = $data['image'];
+      }
  
-     $edite_student ="UPDATE students SET image ='$img',
+     $edite_student ="UPDATE `students` SET image ='$img',
      name ='$name', 
      email ='$email',
      phone ='$phone',
-     EnrollNumber = '$number' 
+     EnrollNumber = '$number'
+
+
      where id = '$id'";
      mysqli_query($conn, $edite_student);
  

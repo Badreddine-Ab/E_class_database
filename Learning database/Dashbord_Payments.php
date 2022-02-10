@@ -1,5 +1,5 @@
-<?php
-  require_once 'arrayPayment.php'
+<?php 
+require_once 'connect_db.php'
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +33,10 @@
                   <nav class="navbar navbar-expand-lg pt-3">
                     <div class="container-fluid">
                         <h1 class="fs-3 ps-3">Payments Details</h1>
-                        <i class="bi bi-arrows-expand pe-3 text-info fs-4"></i>
+                        <form class="d-flex pe-3">
+                          <i class="bi bi-arrows-expand fs-5 me-3"></i>
+                          <a href="create_payment.php" class="btn btn-outline-success ps-5 pe-5 bg-info text-light border-0">ADD A NEW PAYMENT</a>
+                        </form>
                     </div>
                 </nav>
 
@@ -52,20 +55,19 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <?php foreach($tabpayment as $payment) : ?>
+                    <?php $results = mysqli_query($conn, "SELECT * FROM `payment_details`"); 
+                    while($payment = mysqli_fetch_array($results)) {?>
                       <tr class=" bg-white  mb-3 align-middle border-5 border-light ">
                         <td><?php echo $payment['name'] ?></td>
-                        <td><?php echo $payment['PaymentSchedule'] ?></td>
-                        <td><?php echo $payment['BillNumber'] ?></td>
-                        <td><?php echo $payment['AmountPaid'] ?></td>
-                        <td><?php echo $payment['BalanceAmount'] ?></td>
+                        <td><?php echo $payment['Payment_Schedule'] ?></td>
+                        <td><?php echo $payment['Bill_Number'] ?></td>
+                        <td><?php echo $payment['Amount_Paid'] ?></td>
+                        <td><?php echo $payment['Balance_amount'] ?></td>
                         <td><?php echo $payment['Date'] ?></td>
-                        <td class="text-info">
-                          <?php echo $payment['icone'] ?>
-                        </td>
+                        
                       </tr>
-                      
-                      <?php endforeach ?>
+  
+                      <?php } ?>
                       
                     </tbody>
                   </table>

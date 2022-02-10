@@ -21,7 +21,7 @@
                     </div>
                     
                     <div class="mt-3 d-flex justify-content-center">
-                      <a href="" class="fs-5 text-center me-3 text-decoration-none text-dark ">
+                      <a href="Dashbord_Courses.php" class="fs-5 text-center me-3 text-decoration-none text-dark ">
                           <i class="bi bi-bookmark fs-4 me-3"></i> 
                           Course</a>
                     </div>
@@ -51,8 +51,8 @@
                     </div>
                    
                   </div>
-                  <div class="mt-5 bottom d-flex justify-content-center align-items-center">
-                    <a href="Dashbord_Admin.php" class="fs-5 text-center text-decoration-none text-dark mt-4 mb-3">Logout
+                  <div class="mt-3 bottom d-flex justify-content-center align-items-center">
+                    <a href="Dashbord_Admin.php" class="fs-5 text-center text-decoration-none text-dark mt-4 ">Logout
                       <i class="bi bi-box-arrow-right "></i>
                     </a>
                   </div>
